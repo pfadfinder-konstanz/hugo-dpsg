@@ -25,6 +25,13 @@ section {
 	display: block;
 }
 
+nav {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 1;
+}
+
 :focus::-webkit-input-placeholder {
 	color: transparent;
 }
