@@ -481,6 +481,9 @@ select {
 
 .logo {
 	padding: 25px;
+	{{ with .Site.Params.logo.header -}}
+	background: url(/{{ . }}) center/cover no-repeat
+	{{- end }}
 }
 
 .logo__link {
@@ -518,7 +521,7 @@ select {
 	font-size: 2rem;
 	font-weight: 700;
 	line-height: 1;
-	color: #000;
+	color: #003056;
 }
 
 .logo__tagline {
