@@ -65,7 +65,7 @@
 - id: footer_credits
   translation:
     "このサイトは <a href=\"https://gohugo.io/\" rel=\"nofollow noopener\" target=\"_blank\">Hugo</a> と \
-    <a href=\"https://github.com/Vimux/Mainroad/\" rel=\"nofollow noopener\" target=\"_blank\">Mainroad</a> \
+    <a href=\"https://github.com/mxmehl/hugo-dpsg/\" rel=\"nofollow noopener\" target=\"_blank\">DPSG</a> \
     テーマで生成されています。"
 
 # 404
