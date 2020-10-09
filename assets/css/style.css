@@ -131,6 +131,27 @@ nav {
        url('/fonts/open-sans-v18-latin-700italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
+/* merriweather-regular - latin */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Merriweather Regular'), local('Merriweather-Regular'),
+       url('/fonts/merriweather-v22-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('/fonts/merriweather-v22-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* merriweather-700 - latin */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Merriweather Bold'), local('Merriweather-Bold'),
+       url('/fonts/merriweather-v22-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('/fonts/merriweather-v22-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+
 
 /* Structure */
 html {
@@ -594,7 +615,7 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 
 .menu__list {
 	list-style: none;
-	background: #2a2a2a;
+	background: {{ $highlightColor }};
 }
 
 .menu__item:hover {
@@ -606,16 +627,17 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 }
 
 .menu__item--active {
-	background: {{ $highlightColor }};
+	/* background: {{ $highlightColor }}; */
 }
 
 .menu__link {
 	display: block;
 	padding: 10px 15px;
 	padding: .625rem .9375rem;
+	font-family: 'Merriweather', Georgia, serif;
+	font-size: 18px;
 	font-weight: 700;
 	color: #fff;
-	text-transform: uppercase;
 }
 
 .menu__link:hover {
@@ -646,9 +668,6 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 }
 
 @media screen and (min-width: 767px) {
-	.menu {
-		border-bottom: 5px solid {{ $highlightColor }};
-	}
 
 	.menu__btn {
 		display: none;
@@ -667,9 +686,6 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 		transform: none;
 	}
 
-	.menu__item {
-		border-left: 1px solid rgba(255, 255, 255, .1);
-	}
 }
 
 /* Posts/Pages */
