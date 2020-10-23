@@ -529,7 +529,8 @@ select {
 	font-size: 2rem;
 	font-weight: 700;
 	line-height: 1;
-	color: #003056;
+	color: {{ $highlightColor }};
+	text-shadow: 0px 0px 5px #fff;
 }
 
 .logo__tagline {
@@ -541,7 +542,8 @@ select {
 	font-weight: 700;
 	line-height: 1;
 	color: {{ $highlightColor }};
-	border-top: 1px solid #ebebeb;
+	text-shadow: 0px 0px 5px #fff;
+	border-top: 1px solid #9d9d9d;
 }
 
 .divider {
@@ -1354,7 +1356,7 @@ textarea {
 
 	.wrapper,
 	.logo {
-		padding: 20px;
+		padding: 10px;
 	}
 
 	.widget {
