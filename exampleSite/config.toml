@@ -1,35 +1,50 @@
-baseurl = "/"
-title = "Mainroad"
-languageCode = "en-us"
+baseurl = "https://example.com"
+title = "Hugo DPSG"
+languageCode = "de"
+DefaultContentLanguage = "de"
 paginate = "10" # Number of posts per page
-theme = "mainroad"
-disqusShortname = "" # Enable comments by entering your Disqus shortname
-googleAnalytics = "" # Enable Google Analytics by entering your tracking id
+theme = "hugo-dpsg"
 
-[Author]
-  name = "John Doe"
-  bio = "John Doe's true identity is unknown. Maybe he is a successful blogger or writer. Nobody knows it."
+[Author] # Used in authorbox
+  name = "Scout Master"
+  bio = "The Scout Master is the leader of this local scout group"
   avatar = "img/avatar.png"
 
 [Params]
-  description = "John Doe's Personal blog about everything" # Description of your site
-  opengraph = true
-  twitter_cards = false
+  description = "Welcome to our scout group!" # Site description. Used in meta description
+  copyright = "DGSP local group" # Footer copyright holder, otherwise will use site title
+  opengraph = true # Enable OpenGraph if true
+  schema = true # Enable Schema
+  twitter_cards = true # Enable Twitter Cards if true
   readmore = false # Show "Read more" button in list if true
-  authorbox = true
-  pager = true
-  post_meta = ["date", "categories"] # Order of post meta information
+  authorbox = true # Show authorbox at bottom of pages if true
+  toc = true # Enable Table of Contents
+  pager = true # Show pager navigation (prev/next links) at the bottom of pages if true
+  indexPager = true # Show pager navigation on index page
+  post_meta = ["author", "date", "categories", "translations"] # Order of post meta information
+  mainSections = ["post", "blog", "news"] # Specify section pages to show on home page and the "Recent articles" widget
+  dateformat = "02.01.2006" # Change the format of dates
+  customCSS = ["css/custom.css"] # Include custom CSS files
+  customJS = ["js/custom.js"] # Include custom JS files
+
+[Params.style.vars]
+  highlightColor = "#003056" # Override main theme color
 
 [Params.logo]
-  subtitle = "Just another site" # Logo subtitle
+  image = "img/placeholder.png" # Logo image. Path relative to "static"
+  header = "img/header.jpg" # Header image. Path relative to "static"
+  title = "Hugo DPSG" # Logo title, otherwise will use site title
+  subtitle = "Welcome to our group site" # Logo subtitle
 
 [Params.sidebar]
-  home = "right"   # Configure layout for home page
-  list = "right"   # Configure layout for list pages
-  single = "right" # Configure layout for single pages
+  home = "right" # Configure layout for home page
+  list = "left"  # Configure layout for list pages
+  single = false # Configure layout for single pages
   # Enable widgets in given order
-  widgets = ["search", "recent", "categories", "taglist"]
+  widgets = ["search", "recent", "categories", "taglist", "social", "languages"]
+  # alternatively "ddg-search" can be used, to search via DuckDuckGo
+  # widgets = ["ddg-search", "recent", "categories", "taglist", "social", "languages"]
 
 [Params.widgets]
   recent_num = 5 # Set the number of articles in the "Recent articles" widget
-  tags_counter = false # Enable counter for each tag in "Tags" widget (disabled by default)
+  tags_counter = false # Enable counter for each tag in "Tags" widget
