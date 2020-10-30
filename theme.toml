@@ -7,9 +7,11 @@ tags = ["blog", "responsive", "customizable", "widgets", "rss"]
 features = ["blog", "responsive", "widgets", "rss", "wordpress"]
 min_version = "0.48"
 
-[author]
-  name = "Max Mehl"
-  homepage = "https://mehl.mx"
+# If the theme has multiple authors
+authors = [
+  {name = "Max Mehl", homepage = "https://mehl.mx"},
+  {name = "Vimux", homepage = "https://github.com/vimux"}
+]
 
 # If porting an existing theme
 [original]
