@@ -24,8 +24,8 @@ theme = "hugo-dpsg"
   post_meta = ["author", "date", "categories", "translations"] # Order of post meta information
   mainSections = ["post", "blog", "news"] # Specify section pages to show on home page and the "Recent articles" widget
   dateformat = "02.01.2006" # Change the format of dates
-  customCSS = ["css/custom.css"] # Include custom CSS files
-  customJS = ["js/custom.js"] # Include custom JS files
+  customCSS = [""] # Include custom CSS files
+  customJS = [""] # Include custom JS files
 
 [Params.style.vars]
   highlightColor = "#003056" # Override main theme color

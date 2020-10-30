@@ -27,7 +27,7 @@
 	{{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
 	{{- end }}
 
-	<link rel="shortcut icon" href="{{ "favicon.ico" | relURL }}">
+	<link rel="shortcut icon" href="{{ "favicon.ico" | absURL }}">
 	{{- if not .Site.IsServer }}
 		{{ template "_internal/google_analytics_async.html" . }}
 	{{- end }}
