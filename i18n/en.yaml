@@ -53,6 +53,10 @@
 - id: recent_title
   translation: "Recent Posts"
 
+# Recent Photos widget
+- id: recent_photos_title
+  translation: "Recent Photos"
+
 # Social widget
 - id: social_title
   translation: "Social"

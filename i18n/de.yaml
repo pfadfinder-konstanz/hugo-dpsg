@@ -53,6 +53,10 @@
 - id: recent_title
   translation: "Letzte Beiträge"
 
+# Recent Photos widget
+- id: recent_photos_title
+  translation: "Neueste Fotos"
+
 # Social widget
 - id: social_title
   translation: "Soziale Netzwerke"
