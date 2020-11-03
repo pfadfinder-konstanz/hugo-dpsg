@@ -111,6 +111,9 @@ theme = "hugo-dpsg"
   # alternatively "ddg-search" can be used, to search via DuckDuckGo
   # widgets = ["ddg-search", "recent", "categories", "taglist", "social", "languages"]
 
+[Params.footer]
+  text = "[Imprint and Privacy](/imprint)" # Extra text in footer row, understands markdown
+
 [Params.widgets]
   recent_num = 5 # Set the number of articles in the "Recent articles" widget
   tags_counter = false # Enable counter for each tag in "Tags" widget
