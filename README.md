@@ -92,6 +92,7 @@ theme = "hugo-dpsg"
   dateformat = "02.01.2006" # Change the format of dates
   customCSS = ["css/custom.css"] # Include custom CSS files
   customJS = ["js/custom.js"] # Include custom JS files
+  customPartial = "piwik.html" # Include custom partials, e.g. tracking codes
 
 [Params.style.vars]
   highlightColor = "#003056" # Override main theme color
