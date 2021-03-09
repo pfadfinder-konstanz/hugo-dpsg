@@ -114,6 +114,7 @@ theme = "hugo-dpsg"
 
 [Params.footer]
   text = "[Imprint and Privacy](/imprint)" # Extra text in footer row, understands markdown
+  right = "Donate!" # Right-aligned text in footer row, understands markdown
 
 [Params.widgets]
   recent_num = 5 # Set the number of articles in the "Recent articles" widget
