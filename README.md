@@ -90,7 +90,7 @@ theme = "hugo-dpsg"
   mainSections = ["post", "blog", "news"] # Specify section pages to show on home page and the "Recent articles" widget
   photosSections = ["photos"] # Specify section pages to show on home page and the "Recent photos" widget
   dateformat = "02.01.2006" # Change the format of dates
-  customCSS = ["css/custom.css"] # Include custom CSS files
+  customCSS = ["css/custom.css"] # Include custom CSS files, can also be used per-page as front matter attribute
   customJS = ["js/custom.js"] # Include custom JS files
   customPartial = "piwik.html" # Include custom partials, e.g. tracking codes
 
@@ -99,6 +99,7 @@ theme = "hugo-dpsg"
 
 [Params.logo]
   image = "img/placeholder.png" # Logo image. Path relative to "static"
+  #image_alt = "Logo image" # alt value for logo image, be screen reader friendly!
   header = "img/header.jpg" # Header image. Path relative to "static"
   title = "DPSG local group" # Logo title, otherwise will use site title
   subtitle = "Welcome to our group site" # Logo subtitle
@@ -114,7 +115,7 @@ theme = "hugo-dpsg"
 
 [Params.footer]
   text = "[Imprint and Privacy](/imprint)" # Extra text in footer row, understands markdown
-  right = "Donate!" # Right-aligned text in footer row, understands markdown
+  right = "Donate!" # Right-aligned text in footer row, optional, understands markdown
 
 [Params.widgets]
   recent_num = 5 # Set the number of articles in the "Recent articles" widget
@@ -168,6 +169,7 @@ menu: main # Optional, add page to a menu. Options: main, side, footer
 
 # Theme-Defined params
 thumbnail: "img/placeholder.jpg" # Thumbnail image
+#thumbnail_alt: "Thumbnail" # alt value for thumbnail image, be screen reader friendly!
 thumbnail_hide_post: false # Hide thumbnail on single post view
 lead: "Example lead - highlighted near the title" # Lead text
 authorbox: true # Enable authorbox for specific page
@@ -179,6 +181,10 @@ widgets: # Enable sidebar widgets in given order per page
   - "recent"
   - "taglist"
 sitemap_hide: false # Do not add this page to the sitemap
+scripts_head: # optional: include some literal <head> matter, e.g. for page-specific JS imports; safeHTML-filtered
+  - "<!-- -->"
+scripts_body: # optional: include some literal html just before <body/> tag, e.g. JS initialization; safeHTML-filtered
+  - "<!-- -->"
 ---
 ```
 
@@ -243,7 +249,7 @@ your `config.toml`. Here is an example.
 
 **Note:** You need to put your icon file in `layouts/partials` directory under your
 project's root if you want to display an icon of your social link. The `icon`
-filed, which is optional, should be a path relative to `layouts/partials`.
+field, which is optional, should be a path relative to `layouts/partials`.
 
 **Note:** *Only* SVG files are supported to be used as custom social icons in the current
 version. If you use any files of another format, PNG for example, a compile

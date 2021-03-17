@@ -1,0 +1,5 @@
+	{{- with .Params.scripts_body -}}
+		{{- range . -}}
+			{{- . | safeHTML -}}
+		{{- end -}}
+	{{- end -}}

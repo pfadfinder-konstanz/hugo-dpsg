@@ -19,7 +19,10 @@
 
 	{{ $style := resources.Get "css/style.css" | resources.ExecuteAsTemplate "css/style.css" . -}}
 	<link rel="stylesheet" href="{{ $style.RelPermalink }}">
-	{{ range .Site.Params.customCSS -}}
+	{{- range .Site.Params.customCSS }}
+	<link rel="stylesheet" href="{{ . | relURL }}">
+	{{- end }}
+	{{- range .Params.customCSS }}
 	<link rel="stylesheet" href="{{ . | relURL }}">
 	{{- end }}
 
@@ -27,7 +30,8 @@
 	{{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
 	{{- end }}
 
-	<link rel="shortcut icon" href="{{ "favicon.ico" | absURL }}">
+	{{ partial "favicon" . }}
+	{{ partial "perpagehead" . }}
 	{{- if not .Site.IsServer }}
 		{{ template "_internal/google_analytics_async.html" . }}
 	{{- end }}
@@ -46,11 +50,15 @@
 			</div>
 			{{ partial "sidebar.html" . }}
 		</div>
+		{{- if .Params.partial_pre_footer }}
+			{{ partial .Params.partial_pre_footer . }}
+		{{- end }}
 		{{ partial "footer" . }}
 <script async defer src="{{ "js/menu.js" | relURL }}"></script>
 {{ range .Site.Params.customJS -}}
 <script src="{{ . | relURL }}"></script>
 {{- end }}
 {{ with .Site.Params.customPartial }}{{ partial . }}{{ end }}
+{{ partial "perpagebody" . }}
 </body>
 </html>
