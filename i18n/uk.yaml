@@ -1,0 +1,94 @@
+# General
+- id: read_more
+  translation: "Читати далі…"
+
+- id: menu_label
+  translation: "Меню"
+
+- id: sidemenu_title
+  translation: "Меню"
+
+# Post meta
+- id: meta_lastmod
+  translation: "Останні зміни"
+
+- id: meta_translations
+  translation: "Переклади"
+
+# Table of Contents
+- id: toc_title
+  translation: "Вміст сторінки"
+
+# Post nav
+- id: post_nav_prev
+  translation: "Назад"
+
+- id: post_nav_next
+  translation: "Далі"
+
+# Authorbox
+- id: authorbox_name
+  translation: "Про автора {{ .Count }}"
+
+# Sidebar
+- id: sidebar_warning
+  translation: "УВАГА"
+
+- id: sidebar_recommendation
+  translation: "Будь ласка, активуйте принаймні один віджет на боковій панелі."
+
+# Search widget
+- id: search_placeholder
+  translation: "ПОШУК..."
+
+# Languages widget
+- id: languages_title
+  translation: "Мови"
+
+# Categories widget
+- id: categories_title
+  translation: "Категорії"
+
+# Recent Posts widget
+- id: recent_title
+  translation: "Нещодавні публікації"
+
+# Social widget
+- id: social_title
+  translation: "Соціальні мережі"
+
+# Tags List widget
+- id: tags_title
+  translation: "Теги"
+
+# Footer
+- id: footer_credits
+  translation:
+    "Створено за допомогою <a href=\"https://gohugo.io/\" rel=\"nofollow noopener\" target=\"_blank\">Hugo</a> \
+    і теми <a href=\"https://github.com/mxmehl/hugo-dpsg/\" rel=\"nofollow noopener\" target=\"_blank\">DPSG</a>."
+
+# 404
+- id: 404_title
+  translation: "404. Сторінку не знайдено"
+
+- id: 404_text
+  translation:
+    "Схоже, що сторінку, яку ви шукали, було переміщено, видалено або ж її ніколи не існувало. Будь ласка, \
+    скористайтесь пошуком або перейдіть до"
+
+- id: 404_linktext
+  translation: "головної сторінки"
+
+# No posts empty state
+- id: noposts_warning_title
+  translation: "У вас немає жодної публікації!"
+
+- id: noposts_warning_description
+  translation:
+    "Як тільки ви опублікуєте щось в будь-якій папці (розділі) всередині директорії <b>content</b>, воно з'явиться \
+    тут. За замовчуванням на головній сторінці буде відображатись лише один розділ (з найбільшою кількістю публікацій)"
+
+- id: noposts_warning_tip
+  translation:
+    "<b>Порада:</b> Ви можете показувати будь-яку кількість розілів за допомогою параметру конфігурації \
+    <b><a href=\"https://gohugo.io/functions/where/#mainsections\" rel=\"nofollow noopener\" target=\"_blank\">mainSections</a></b>."
