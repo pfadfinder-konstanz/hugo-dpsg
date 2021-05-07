@@ -20,14 +20,14 @@
 	{{ $style := resources.Get "css/style.css" | resources.ExecuteAsTemplate "css/style.css" . -}}
 	<link rel="stylesheet" href="{{ $style.RelPermalink }}">
 	{{- range .Site.Params.customCSS }}
-	<link rel="stylesheet" href="{{ . | relURL }}">
+		<link rel="stylesheet" href="{{ . | relURL }}">
 	{{- end }}
 	{{- range .Params.customCSS }}
-	<link rel="stylesheet" href="{{ . | relURL }}">
+		<link rel="stylesheet" href="{{ . | relURL }}">
 	{{- end }}
 
 	{{- with .OutputFormats.Get "rss" }}
-	{{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
+		{{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
 	{{- end }}
 
 	{{ partial "favicon" . }}
@@ -37,28 +37,28 @@
 	{{- end }}
 </head>
 <body class="body">
-		{{ partial "header" . }}
-		<div class="container wrapper flex">
-			<div class="primary">
-			{{ block "main" . }}
-				{{ with .Content }}
-				<div class="content main__content clearfix">
-					{{ . }}
-				</div>
-				{{ end }}
-			{{ end }}
+	{{ partial "header" . }}
+	<div class="container wrapper flex">
+		<div class="primary">
+		{{ block "main" . }}
+			{{ with .Content }}
+			<div class="content main__content clearfix">
+				{{ . }}
 			</div>
-			{{ partial "sidebar.html" . }}
+			{{ end }}
+		{{ end }}
 		</div>
-		{{- if .Params.partial_pre_footer }}
-			{{ partial .Params.partial_pre_footer . }}
-		{{- end }}
-		{{ partial "footer" . }}
-<script async defer src="{{ "js/menu.js" | relURL }}"></script>
-{{ range .Site.Params.customJS -}}
-<script src="{{ . | relURL }}"></script>
-{{- end }}
-{{ with .Site.Params.customPartial }}{{ partial . }}{{ end }}
-{{ partial "perpagebody" . }}
+		{{ partial "sidebar.html" . }}
+	</div>
+	{{- if .Params.partial_pre_footer }}
+		{{ partial .Params.partial_pre_footer . }}
+	{{- end }}
+	{{ partial "footer" . }}
+	<script async defer src="{{ "js/menu.js" | relURL }}"></script>
+	{{ range .Site.Params.customJS -}}
+		<script src="{{ . | relURL }}"></script>
+	{{- end }}
+	{{ with .Site.Params.customPartial }}{{ partial . }}{{ end }}
+	{{ partial "perpagebody" . }}
 </body>
 </html>
