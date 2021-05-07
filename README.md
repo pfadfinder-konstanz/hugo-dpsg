@@ -99,7 +99,7 @@ theme = "hugo-dpsg"
 
 [Params.logo]
   image = "img/placeholder.png" # Logo image. Path relative to "static"
-  #image_alt = "Logo image" # alt value for logo image, be screen reader friendly!
+  image_alt = "Logo image" # alt text for logo image, be screen reader friendly!
   header = "img/header.jpg" # Header image. Path relative to "static"
   title = "DPSG local group" # Logo title, otherwise will use site title
   subtitle = "Welcome to our group site" # Logo subtitle
@@ -169,7 +169,7 @@ menu: main # Optional, add page to a menu. Options: main, side, footer
 
 # Theme-Defined params
 thumbnail: "img/placeholder.jpg" # Thumbnail image
-#thumbnail_alt: "Thumbnail" # alt value for thumbnail image, be screen reader friendly!
+thumbnail_alt: "Thumbnail" # alt text for thumbnail image, be screen reader friendly!
 thumbnail_hide_post: false # Hide thumbnail on single post view
 lead: "Example lead - highlighted near the title" # Lead text
 authorbox: true # Enable authorbox for specific page
