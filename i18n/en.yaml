@@ -69,7 +69,7 @@
 - id: footer_credits
   translation:
     "Generated with <a href=\"https://gohugo.io/\" rel=\"nofollow noopener\" target=\"_blank\">Hugo</a> and \
-    <a href=\"https://github.com/mxmehl/hugo-dpsg/\" rel=\"nofollow noopener\" target=\"_blank\">DPSG</a> theme."
+    <a href=\"https://github.com/pfadfinder-konstanz/hugo-dpsg/\" rel=\"nofollow noopener\" target=\"_blank\">DPSG</a> theme."
 
 # 404
 - id: 404_title
