@@ -50,9 +50,6 @@
 		</div>
 		{{ partial "sidebar.html" . }}
 	</div>
-	{{- if .Params.partial_pre_footer }}
-		{{ partial .Params.partial_pre_footer . }}
-	{{- end }}
 	{{ partial "footer" . }}
 	<script async defer src="{{ "js/menu.js" | relURL }}"></script>
 	{{ range .Site.Params.customJS -}}
