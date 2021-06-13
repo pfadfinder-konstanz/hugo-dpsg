@@ -6,5 +6,6 @@
 			<span class="footer__copyright-credits">{{ T "footer_credits" | safeHTML }}</span>
 			{{ with .Site.Params.footer.text }}<span>{{ . | markdownify }}</span>{{ end }}
 		</div>
+		{{ partial "footer_right.html" . }}
 	</div>
 </footer>

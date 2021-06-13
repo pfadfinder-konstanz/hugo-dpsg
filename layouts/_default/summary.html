@@ -19,9 +19,12 @@
 		<div class="list__meta meta">{{ . }}</div>
 		{{- end }}
 	</header>
+	{{- if eq .Params.summary "" }}
+	{{- else }}
 	<div class="content list__excerpt post__content clearfix">
 		{{ .Summary }}
 	</div>
+	{{- end }}
 	{{- if .Site.Params.readmore }}
 	{{- if .Truncated }}
 	<div class="list__footer clearfix">

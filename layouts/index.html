@@ -19,8 +19,8 @@
 					<p class="warning__tip">{{ T "noposts_warning_tip" | safeHTML }}</p>
 				</div>
 			</div>
-		{{ end }}
-	</main>
-	{{ partial "pagination.html" . }}
-	{{ end }}
+		{{- end }}
+		{{ partial "pagination.html" . }}
+	{{- end }}
+</main>
 {{ end }}

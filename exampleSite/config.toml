@@ -49,6 +49,7 @@ theme = "hugo-dpsg"
 
 [Params.footer]
   text = "[Imprint and Privacy](/imprint)" # Extra text in footer row, understands markdown
+  right = "Donate!" # Right-aligned text in footer row, understands markdown
 
 # Custom menu items, normally controlled via front matter in /content files
 [menu]
