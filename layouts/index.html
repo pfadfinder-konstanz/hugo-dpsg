@@ -1,5 +1,10 @@
 {{ define "main" }}
 <main class="main list" role="main">
+	{{- with .Title }}
+	<header class="main__header">
+		<h1 class="main__title">{{ . }}</h1>
+	</header>
+	{{- end }}
 	{{- with .Content }}
 	<div class="content main__content clearfix">
 		{{ . }}
