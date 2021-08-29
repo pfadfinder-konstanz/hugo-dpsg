@@ -55,7 +55,7 @@
 	{{ range .Site.Params.customJS -}}
 		<script src="{{ . | relURL }}"></script>
 	{{- end }}
-	{{ with .Site.Params.customPartial }}{{ partial . }}{{ end }}
+	{{ if .Site.Params.customPartial }}{{ partial .Site.Params.customPartial . }}{{ end }}
 	{{ partial "perpagebody" . }}
 </body>
 </html>
