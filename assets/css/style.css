@@ -751,7 +751,7 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 
 .main__title {
 	font-size: 28px;
-	font-size: 1.75rem;
+	font-size: 2rem;
 }
 
 .main__content {
