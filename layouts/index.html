@@ -5,6 +5,7 @@
 		<h1 class="main__title">{{ . }}</h1>
 	</header>
 	{{- end }}
+	{{- with .Site.Params.belowTitlePartial }}{{ partial . }}{{ end }}
 	{{- with .Content }}
 	<div class="content main__content clearfix">
 		{{ . }}

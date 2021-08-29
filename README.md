@@ -93,7 +93,8 @@ theme = "hugo-dpsg"
   dateformat = "02.01.2006" # Change the format of dates
   customCSS = ["css/custom.css"] # Include custom CSS files, can also be used per-page as front matter attribute
   customJS = ["js/custom.js"] # Include custom JS files
-  customPartial = "piwik.html" # Include custom partials, e.g. tracking codes
+  customPartial = "piwik.html" # Include custom partials at the end of the page, e.g. tracking codes
+  belowTitlePartial = "alert.html" # Include custom partial below the pages title
 
 [Params.style.vars]
   highlightColor = "#003056" # Override main theme color

@@ -10,6 +10,7 @@
 			<div class="post__meta meta">{{ . }}</div>
 			{{- end }}
 		</header>
+		{{- with .Site.Params.belowTitlePartial }}{{ partial . }}{{ end }}
 		{{- if and (.Params.thumbnail) (not .Params.thumbnail_hide_post) }}
 		<figure class="post__thumbnail">
 			<img src="{{ .Params.thumbnail | relURL }}" alt="{{ .Title }}">
