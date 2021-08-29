@@ -89,6 +89,7 @@ theme = "hugo-dpsg"
   post_meta = ["author", "date", "categories", "translations"] # Order of post meta information
   mainSections = ["post", "blog", "news"] # Specify section pages to show on home page and the "Recent articles" widget
   photosSections = ["photos"] # Specify section pages to show on home page and the "Recent photos" widget
+  photoTag = "photos" # Specify one tag to show on home page and the "Recent photos" widget. Similar as photoSections, but with 1 tag instead of 1 or multiple sections
   dateformat = "02.01.2006" # Change the format of dates
   customCSS = ["css/custom.css"] # Include custom CSS files, can also be used per-page as front matter attribute
   customJS = ["js/custom.js"] # Include custom JS files
@@ -109,7 +110,7 @@ theme = "hugo-dpsg"
   list = "left"  # Configure layout for list pages
   single = false # Configure layout for single pages
   # Enable widgets in given order
-  widgets = ["search", "recent", "recent_photos", "categories", "taglist", "social", "languages"]
+  widgets = ["search", "recent", "recent_photos", "recent_photos_tags", "categories", "taglist", "social", "languages"]
   # alternatively "ddg-search" can be used, to search via DuckDuckGo
   # widgets = ["ddg-search", "recent", "categories", "taglist", "social", "languages"]
 
