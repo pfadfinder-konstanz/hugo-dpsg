@@ -8,12 +8,14 @@
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Params.Description }}{{ end }}">
 	{{- if .Site.Params.opengraph }}
+		{{ if and (not .Params.images) (.Params.thumbnail) }}<meta property="og:image" content="{{ .Params.thumbnail | absURL }}" />{{ end }}
 		{{ template "_internal/opengraph.html" . }}
 	{{- end }}
 	{{- if .Site.Params.schema }}
 		{{ template "_internal/schema.html" . }}
 	{{- end }}
 	{{- if .Site.Params.twitter_cards }}
+		{{ if and (not .Params.images) (.Params.thumbnail) }}<meta property="twitter:image" content="{{ .Params.thumbnail | absURL }}" />{{ end }}
 		{{ template "_internal/twitter_cards.html" . }}
 	{{- end }}
 
