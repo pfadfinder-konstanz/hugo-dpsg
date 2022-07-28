@@ -1460,7 +1460,15 @@ textarea {
 	}
 
 	.list__thumbnail {
-		max-width: 80px;
+		width: 100%;
+	}
+
+	.list__thumbnail img {
+		max-width: 100%;
+		width: 300px;
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
 	}
 
 	.list__title {
