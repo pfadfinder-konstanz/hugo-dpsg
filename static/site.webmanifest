@@ -3,14 +3,20 @@
     "short_name": "DPSG",
     "icons": [
         {
-            "src": "/android-chrome-192x192.png",
-            "sizes": "192x192",
-            "type": "image/png"
-        },
-        {
-            "src": "/android-chrome-512x512.png",
+            "src": "/maskable_icon_x512.png",
             "sizes": "512x512",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any maskable"
+        },        {
+            "src": "/maskable_icon_x128.png",
+            "sizes": "128x128",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },        {
+            "src": "/maskable_icon_x48.png",
+            "sizes": "48x48",
+            "type": "image/png",
+            "purpose": "any maskable"
         }
     ],
     "theme_color": "#003056",
