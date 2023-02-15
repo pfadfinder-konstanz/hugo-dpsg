@@ -1,4 +1,5 @@
-{{- $highlightColor := .Site.Params.style.vars.highlightColor | default (.Site.Params.highlightColor | default "#e22d30") -}}
+{{- $highlightColor := .Site.Params.style.vars.highlightColor | default (.Site.Params.highlightColor | default "#003056") -}}
+{{- $accentColor := .Site.Params.style.vars.accentColor | default (.Site.Params.accentColor | default "#810a1a") -}}
 
 {{- $fontSans := `"Open Sans", Helvetica, Arial, sans-serif` -}}
 {{- $fontMono := `SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace` -}}
@@ -171,17 +172,18 @@ body {
 .container {
 	position: relative;
 	width: 100%;
-	max-width: 1080px;
+	max-width: 1200px;
 	margin: 0 auto;
 }
 
 .container--outer {
-	/* margin: 25px auto;
-	box-shadow: 0 0 10px rgba(50, 50, 50, .17); */
+	margin: 25px auto; 
+	box-shadow: 0 0 10px rgba(50, 50, 50, .17); 
 }
 
 .wrapper {
 	padding: 25px 0;
+	padding: 1.6rem 0;
 }
 
 .flex {
@@ -241,6 +243,7 @@ textarea {
 /* Button */
 .btn {
 	padding: 5px 10px;
+	padding: .3rem .6rem;
 	font-weight: 700;
 	color: #fff;
 	white-space: pre-line;
@@ -302,11 +305,12 @@ a {
 }
 
 a:hover {
-	color: {{ $highlightColor }};
+	color: {{ $accentColor }};
 }
 
 hr {
 	margin: 0 0 20px;
+	margin: 0 0 1.25rem;
 	border: 0;
 	border-top: 1px solid #dadada;
 }
@@ -405,6 +409,7 @@ kbd {
 blockquote {
 	display: block;
 	padding: 5px 0 5px 15px;
+	padding: .3rem 0 .3rem .9rem;
 	margin: 0 0 20px;
 	margin: 0 0 1.25rem;
 	line-height: 1.6;
@@ -453,6 +458,7 @@ address {
 
 dl {
 	margin: 0 0 10px 20px;
+	margin: 0 0 .625rem 1.25rem;
 }
 
 dt,
@@ -467,6 +473,7 @@ dt {
 
 dd {
 	margin-left: 20px;
+	margin-left: 1.25rem;
 	list-style-type: circle;
 }
 
@@ -476,12 +483,14 @@ select {
 
 .warning {
 	padding: 20px 10px;
+	padding: 1.25rem .625rem;
 	text-align: center;
 	border: 1px solid #ddd;
 }
 
 .warning__icon {
 	margin-bottom: 20px;
+	margin-bottom: 1.25rem;
 	fill: #ddd;
 }
 
@@ -492,6 +501,7 @@ select {
 
 .logo {
 	padding: 25px;
+	padding: 1.5625rem;
 	{{ with .Site.Params.logo.header -}}
 	background: url({{ . | absURL }}) center/cover no-repeat
 	{{- end }}
@@ -534,23 +544,28 @@ select {
 	line-height: 1;
 	color: {{ $highlightColor }};
 	text-shadow: 0px 0px 5px #fff;
+	text-shadow: 0 0 .3rem #fff;
 }
 
 .logo__tagline {
 	display: inline-block;
 	padding-top: 10px;
+	padding-top: .625rem;
 	margin-top: 10px;
+	margin-top: .625rem;
 	font-size: 14px;
 	font-size: .875rem;
 	font-weight: 700;
 	line-height: 1;
 	color: {{ $highlightColor }};
 	text-shadow: 0px 0px 5px #fff;
+	text-shadow: 0 0 .3rem #fff;
 	border-top: 1px solid #9d9d9d;
 }
 
 .divider {
 	height: 5px;
+	height:  .3rem;
 	margin: 0;
 	background: {{ $highlightColor }};
 	border: 0;
@@ -632,6 +647,7 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 	padding: .625rem 0;
 	font-family: 'Merriweather', Georgia, serif;
 	font-size: 18px;
+	font-size: 1.125rem;
 	font-weight: 700;
 	color: #fff;
 	position: relative;
@@ -654,6 +670,7 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 	position: absolute;
 	top: 1em;
 	left: -15px;
+	left: -0.9375rem;
 }
 
 .menu__item--active .menu__link::after,
@@ -690,6 +707,7 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 
 	.menu {
 		padding: 0 20px;
+		padding: 0 1.25rem;
 	}
 
 	/* move left arrow to bottom */
@@ -777,6 +795,7 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 .meta__item {
 	display: inline;
 	margin-left: 15px;
+	margin-left: .9375rem;
 }
 
 .meta__item:first-child {
@@ -785,6 +804,7 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 
 .meta__icon {
 	margin-right: 5px;
+	margin-right: .3rem;
 	vertical-align: middle;
 	fill: #c4c4c4;
 }
@@ -799,6 +819,7 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 
 .post__meta {
 	padding: 5px 0;
+	padding: .3rem 0;
 	margin-top: 10px;
 	margin-top: .625rem;
 	border-top: 1px dotted #ebebeb;
@@ -816,6 +837,7 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 
 .post__thumbnail {
 	max-width: 1030px;
+
 	margin: 0 0 20px;
 	margin-bottom: 0 0 1.25rem;
 }
@@ -831,7 +853,10 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 	color: {{ $highlightColor }};
 }
 
-.content a:hover,
+.content a:hover{
+	color: {{ $accentColor }};
+}
+
 .warning a:hover,
 .authorbox__description a:hover {
 	color: {{ $highlightColor }};
@@ -875,6 +900,7 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 .content ul,
 .content ol {
 	margin: 0 0 20px 40px;
+	margin: 0 0 1.25rem 2.5rem;
 }
 
 .content ul ul,
@@ -882,10 +908,12 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 .content ol ul,
 .content ul ol {
 	margin: 0 0 0 40px;
+	margin: 0 0 0 2.5rem;
 }
 
 .content li {
 	margin-bottom: 5px;
+	margin-bottom: .3rem;
 }
 
 .post__footer {
@@ -923,14 +951,19 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 .tags__link:hover {
 	display: block;
 	padding: 10px 15px;
+	padding: .625rem 1rem;
 }
 
 .tags__badge {
 	float: left;
 	width: 32px;
+	width: 2rem;
 	height: 32px;
+	height: 2rem;
 	padding: 8px;
+	padding: .5rem;
 	margin-right: 6px;
+	margin-right: .4rem;
 	background: {{ $highlightColor }};
 	fill: #fff;
 }
