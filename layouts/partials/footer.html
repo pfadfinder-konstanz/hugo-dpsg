@@ -6,6 +6,16 @@
 			<span class="footer__copyright-credits">{{ T "footer_credits" | safeHTML }}</span>
 			{{ with .Site.Params.footer.text }}<span>{{ . | markdownify }}</span>{{ end }}
 		</div>
+
+		{{ if .Site.Params.progressive_webapp }}
+			<script>
+				if('serviceWorker' in navigator) {
+					navigator.serviceWorker
+						.register('/sw.js', { scope: '/' })
+				}
+		  	</script>		
+		{{ end }}
+
 		{{ partial "footer_right.html" . }}
 	</div>
 </footer>
