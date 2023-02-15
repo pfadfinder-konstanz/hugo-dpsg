@@ -26,10 +26,10 @@
 	</div>
 	{{- end }}
 	{{- if .Site.Params.readmore }}
-	{{/*  {{- if .Truncated }}  */}}
+	{{- if or (.Params.readmore | default false) .Truncated }}
 	<div class="list__footer clearfix">
 		<a class="list__footer-readmore btn" href="{{ .RelPermalink }}">{{ T "read_more" }}</a>
 	</div>
-	{{/*  {{- end }}  */}}
+	{{- end }}
 	{{- end }}
 </article>
