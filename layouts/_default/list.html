@@ -11,9 +11,15 @@
 		{{ . }}
 	</div>
 	{{- end }}
-	{{- if .Params.pageFeed -}}
-		{{- range .Paginator.Pages }}
-			{{- .Render "summary" }}
+	{{- if .Params.pageFeed | default true -}}
+		{{- if .Params.reverseOrder }}
+			{{- range .Paginator.Pages.Reverse }}		
+				{{- .Render "summary" }}
+			{{- end }}
+		{{- else }}
+			{{- range .Paginator.Pages }}
+				{{- .Render "summary" }}
+			{{- end }}
 		{{- end }}
 	{{- end }}
 </main>
