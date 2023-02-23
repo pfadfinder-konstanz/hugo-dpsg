@@ -8,6 +8,26 @@
 			{{- $currentNode := . }}
 			{{- range .Site.Menus.main }}
 			{{- if .Name }}
+			{{- if .HasChildren }}
+			<li class="menu__item submenu{{ if or ($currentNode.IsMenuCurrent "main" .) ($currentNode.HasMenuCurrent "main" .) }} menu__item--active{{ end }}">
+				<a class="menu__link" href="{{ .URL }}">
+					{{ .Pre }}
+					<span class="menu__text">{{ .Name }}</span>
+					{{ .Post }}
+				</a>
+				<ul class="submenu__list">
+					{{- range .Children }}
+					<li class="submenu__item">
+						<a class="submenu__link" href="{{ .URL }}">
+							{{ .Pre }}
+							<span class="submenu__text">{{ .Name }}</span>
+							{{ .Post }}
+						</a>
+					</li>
+					{{- end }}
+				</ul>
+			</li>
+			{{- else }}			
 			<li class="menu__item{{ if or ($currentNode.IsMenuCurrent "main" .) ($currentNode.HasMenuCurrent "main" .) }} menu__item--active{{ end }}">
 				<a class="menu__link" href="{{ .URL }}">
 					{{ .Pre }}
@@ -15,6 +35,7 @@
 					{{ .Post }}
 				</a>
 			</li>
+			{{- end }}			
 			{{- end }}
 			{{- end }}
 		</ul>
