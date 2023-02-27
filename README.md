@@ -95,9 +95,11 @@ theme = "hugo-dpsg"
   customJS = ["js/custom.js"] # Include custom JS files
   customPartial = "piwik.html" # Include custom partials at the end of the page, e.g. tracking codes
   belowTitlePartial = "alert.html" # Include custom partial below the pages title
+  progressive_webapp = false # Enable Progressive Web App if true
 
 [Params.style.vars]
   highlightColor = "#003056" # Override main theme color
+  accentColor = "#003056" # Override accent color
 
 [Params.logo]
   image = "img/placeholder.png" # Logo image. Path relative to "static"
@@ -134,6 +136,7 @@ theme = "hugo-dpsg"
   gitlab = "username"
   bitbucket = "username"
   email = "example@example.com"
+  rss = "/news/index.xml" # spath of RSS feed
 
 # Custom social links
 [[Params.widgets.social.custom]]
@@ -167,16 +170,24 @@ categories:
 tags:
   - "Test"
   - "Another test"
-menu: main # Optional, add page to a menu. Options: main, side, footer
+menu: 
+  main: # Optional, add page to a menu. Options: main, side, footer
+    identifier: "example" # identifier for menu item
+    name: "Example Page" # Label for menu
+    weight: 1 # Position of link in menu
+    parent: "parent-identifier" # Optional, add page to a submenu
 
 # Theme-Defined params
 thumbnail: "img/placeholder.jpg" # Thumbnail image
 thumbnail_alt: "Thumbnail" # alt text for thumbnail image, be screen reader friendly!
 thumbnail_hide_post: false # Hide thumbnail on single post view
+readmore: true # force "Read more" button on list pages even if summary is too short
 lead: "Example lead - highlighted near the title" # Lead text
 authorbox: true # Enable authorbox for specific page
 pager: true # Enable pager navigation (prev/next) for specific page
 toc: true # Enable Table of Contents for specific page
+pageFeed: false # Disable list of posts on the bottom of the list-page
+reverse: true # Reverse order of posts on the bottom of the page
 sidebar: "right" # Enable sidebar (on the right side) per page
 widgets: # Enable sidebar widgets in given order per page
   - "search"
