@@ -768,9 +768,8 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 	display: none;
 	top: 100%;
 	background: white;
-	border: 0.2rem solid {{ $highlightColor }};
-	border-radius: 0 0 0.2rem 0.2rem;
-	border-top: 0;
+	padding: 0.5rem;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .menu__item:hover .submenu__list {
@@ -785,7 +784,11 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 
 .submenu__text {
 	display: none;
-	padding: 0.3rem;
+	padding: 0 1rem;
+	font-family: 'Merriweather', Georgia, serif;
+	font-size: 1rem;
+	font-weight: 700;
+	position: relative;
 }
 
 .menu__item:hover .submenu__text {
@@ -795,11 +798,6 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 
 .submenu__link {
 	color: {{ $highlightColor}};
-	padding: .5rem 0;
-	font-family: 'Merriweather', Georgia, serif;
-	font-size: 1rem;
-	font-weight: 700;
-	position: relative;
 }
 
 .submenu__link:hover {
@@ -811,6 +809,8 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 		position: relative;
 		top: 0;
 		background: transparent;
+		box-shadow: 0 0 0;
+		padding: 0 0 1rem 0;
 		border: 0;
 		border-radius: 0;
 	}
