@@ -23,7 +23,7 @@
 		{{- end }}
 	{{- end }}
 </main>
-{{- if .Params.pageFeed -}}
+{{- if .Params.pageFeed | default true -}}
 	{{ partial "pagination.html" . }}
 {{- end }}
 {{ end }}
