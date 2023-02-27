@@ -77,7 +77,7 @@
 
 		{{- with .Site.Params.widgets.social.rss }}
 		<div class="widget-social__item widget__item">
-			<a class="widget-social__link widget__link btn" title="RSS Feed" href="/{{ . }}/index.xml">
+			<a class="widget-social__link widget__link btn" title="RSS Feed" href="{{ . | safeHTML }}">
 				{{ partial "svg/rss.svg" (dict "class" "widget-social__link-icon") }}
 				<span>RSS Feed</span>
 			</a>
