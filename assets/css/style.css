@@ -773,8 +773,8 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 	padding: 0 0 1rem 1rem;
 }
 
-{{ if .Site.Params.expanded_menu }}
-.submenu__list {
+{{ if not .Site.Params.expanded_menu }}
+.menu__item:hover .submenu__list {
 	display: block;
 }
 {{ end }}
@@ -784,11 +784,11 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 	font-size: 1rem;
 	font-weight: 700;
 	display: flex;
-	{{ if .Site.Params.expanded_menu }}opacity: 0; {{ end }}
+	{{ if not .Site.Params.expanded_menu }}opacity: 0; {{ end }}
 }
 
-{{ if .Site.Params.expanded_menu }}
-.submenu__text {
+{{ if not .Site.Params.expanded_menu }}
+.menu__item:hover .submenu__text {
 	opacity: 1;
 }
 {{ end }}
@@ -813,12 +813,12 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 
 	}
 
-	{{ if not .Site.Params.expanded_menu }}
+	{{ if .Site.Params.expanded_menu }}
 	.menu__item:hover .submenu__list {
 		display: block;
 	}
 	{{ end }}
-		
+	
 	.submenu__item:hover {
 		background: {{ $highlightColor }};
 	}
