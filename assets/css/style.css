@@ -645,10 +645,10 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 
 .menu__link {
 	display: block;
-	padding: .625rem 0;
+	padding: .6rem 0;
 	font-family: 'Merriweather', Georgia, serif;
 	font-size: 18px;
-	font-size: 1.125rem;
+	font-size: 1.2rem;
 	font-weight: 700;
 	color: #fff;
 	position: relative;
@@ -708,7 +708,7 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 
 	.menu {
 		padding: 0 20px;
-		padding: 0 1.25rem;
+		padding: 0 1.4rem;
 	}
 
 	/* move left arrow to bottom */
@@ -723,7 +723,7 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 	}
 
 	.menu__item {
-		padding: 0 .9375rem;
+		padding: 0 .8rem;
 	}
 
 	.menu__item--active .menu__link::after,
@@ -833,6 +833,20 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 		color: {{ $highlightColor}};
 	}
 	
+}
+
+/* Start Button */
+
+.start__button{
+	fill: #fff;
+	height: 100%;
+	width: 1.6rem;
+	display: flex;
+}
+
+.menu__item:hover .start__link::after {
+	visibility: hidden;
+	opacity: 0;
 }
 	
 

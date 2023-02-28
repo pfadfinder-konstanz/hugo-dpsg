@@ -97,6 +97,8 @@ theme = "hugo-dpsg"
   belowTitlePartial = "alert.html" # Include custom partial below the pages title
   progressive_webapp = false # Enable Progressive Web App if true
   expanded_menu = true # always show submenu items on mobile
+  start_button = true # show dpsg logo button in menu bar that links to the index page
+
 
 
 [Params.style.vars]
