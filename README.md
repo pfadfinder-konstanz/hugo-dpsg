@@ -96,6 +96,8 @@ theme = "hugo-dpsg"
   customPartial = "piwik.html" # Include custom partials at the end of the page, e.g. tracking codes
   belowTitlePartial = "alert.html" # Include custom partial below the pages title
   progressive_webapp = false # Enable Progressive Web App if true
+  expanded_menu = true # always show submenu items on mobile
+
 
 [Params.style.vars]
   highlightColor = "#003056" # Override main theme color
