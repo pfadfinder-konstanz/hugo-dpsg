@@ -836,19 +836,43 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 }
 
 /* Start Button */
+.start__link{
+	top: -2.6rem;
+}
+
+.start__item{
+	position: absolute;
+}
 
 .start__button{
 	fill: #fff;
 	height: 100%;
 	width: 1.6rem;
 	display: flex;
+	position: absolute;
 }
 
 .menu__item:hover .start__link::after {
 	visibility: hidden;
 	opacity: 0;
 }
-	
+
+@media screen and (min-width: 767px) {
+
+	.start__link{
+		top: 0;
+	}
+
+	.start__item{
+		position: relative;
+	}
+
+	.start__button{
+		position: relative;
+	}
+
+}
+
 
 /* Posts/Pages */
 .post__header,
