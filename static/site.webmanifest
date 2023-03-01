@@ -1,0 +1,26 @@
+{
+    "name": "DPSG",
+    "short_name": "DPSG",
+    "icons": [
+        {
+            "src": "/maskable_icon_x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },        {
+            "src": "/maskable_icon_x128.png",
+            "sizes": "128x128",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },        {
+            "src": "/maskable_icon_x48.png",
+            "sizes": "48x48",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ],
+    "start_url": "/",
+    "theme_color": "#003056",
+    "background_color": "#003056",
+    "display": "standalone"
+}

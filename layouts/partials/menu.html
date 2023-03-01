@@ -5,9 +5,36 @@
 			<span class="menu__btn-title" tabindex="-1">{{ T "menu_label" }}</span>
 		</button>
 		<ul class="menu__list">
+			{{ if .Site.Params.start_button }}
+			<li class="menu__item start__item">
+				<a class="menu__link start__link" href="/">
+					{{ partial "svg/dpsg.svg" (dict "class" "start__button") }}
+				</a>
+			</li>
+			{{ end }}
 			{{- $currentNode := . }}
 			{{- range .Site.Menus.main }}
 			{{- if .Name }}
+			{{- if .HasChildren }}
+			<li class="menu__item submenu{{ if or ($currentNode.IsMenuCurrent "main" .) ($currentNode.HasMenuCurrent "main" .) }} menu__item--active{{ end }}">
+				<a class="menu__link" href="{{ .URL }}">
+					{{ .Pre }}
+					<span class="menu__text">{{ .Name }}</span>
+					{{ .Post }}
+				</a>
+				<ul class="submenu__list">
+					{{- range .Children }}
+					<li class="submenu__item">
+						<a class="submenu__link" href="{{ .URL }}">
+							{{ .Pre }}
+							<span class="submenu__text">{{ .Name }}</span>
+							{{ .Post }}
+						</a>
+					</li>
+					{{- end }}
+				</ul>
+			</li>
+			{{- else }}			
 			<li class="menu__item{{ if or ($currentNode.IsMenuCurrent "main" .) ($currentNode.HasMenuCurrent "main" .) }} menu__item--active{{ end }}">
 				<a class="menu__link" href="{{ .URL }}">
 					{{ .Pre }}
@@ -15,6 +42,7 @@
 					{{ .Post }}
 				</a>
 			</li>
+			{{- end }}			
 			{{- end }}
 			{{- end }}
 		</ul>
