@@ -5,11 +5,6 @@ DefaultContentLanguage = "de"
 paginate = "10" # Number of posts per page
 theme = "hugo-dpsg"
 
-[Author] # Used in authorbox
-  name = "Scout Master"
-  bio = "The Scout Master is the leader of this local scout group"
-  avatar = "img/avatar.png"
-
 [Params]
   description = "Welcome to our scout group!" # Site description. Used in meta description
   copyright = "DGSP local group" # Footer copyright holder, otherwise will use site title
@@ -24,6 +19,11 @@ theme = "hugo-dpsg"
   post_meta = ["author", "date", "categories", "translations"] # Order of post meta information
   mainSections = ["post", "blog", "news"] # Specify section pages to show on home page and the "Recent articles" widget
   dateformat = "02.01.2006" # Change the format of dates
+
+[Params.Author] # Used in authorbox
+  name = "Scout Master"
+  bio = "The Scout Master is the leader of this local scout group"
+  avatar = "img/avatar.png"
 
 [Params.style.vars]
   highlightColor = "#003056" # Override main theme color
