@@ -70,11 +70,6 @@ DefaultContentLanguage = "de"
 paginate = "10" # Number of posts per page
 theme = "hugo-dpsg"
 
-[Author] # Used in authorbox
-  name = "Scout Master"
-  bio = "The Scout Master is the leader of this local scout group"
-  avatar = "img/avatar.png"
-
 [Params]
   description = "Welcome to our scout group!" # Site description. Used in meta description
   copyright = "DGSP local group" # Footer copyright holder, otherwise will use site title
@@ -95,6 +90,11 @@ theme = "hugo-dpsg"
   customJS = ["js/custom.js"] # Include custom JS files
   customPartial = "piwik.html" # Include custom partials at the end of the page, e.g. tracking codes
   belowTitlePartial = "alert.html" # Include custom partial below the pages title
+
+[Params.Author] # Used in authorbox
+  name = "Scout Master"
+  bio = "The Scout Master is the leader of this local scout group"
+  avatar = "img/avatar.png"
 
 [Params.style.vars]
   highlightColor = "#003056" # Override main theme color
