@@ -1,9 +1,16 @@
 baseurl = "https://example.com"
 title = "Hugo DPSG"
-languageCode = "de"
-DefaultContentLanguage = "de"
 paginate = "10" # Number of posts per page
 theme = "hugo-dpsg"
+# Change/remove themesDir, the current location is for deploying the demo page only
+themesDir = "../.."
+# Language settings
+languageCode = "en"
+DefaultContentLanguage = "en"
+
+[permalinks]
+  news = "post/:year/:slug/"
+  fotos = "fotos/:year/:slug/"
 
 [Params]
   description = "Welcome to our scout group!" # Site description. Used in meta description
@@ -19,6 +26,10 @@ theme = "hugo-dpsg"
   post_meta = ["author", "date", "categories", "translations"] # Order of post meta information
   mainSections = ["post", "blog", "news"] # Specify section pages to show on home page and the "Recent articles" widget
   dateformat = "02.01.2006" # Change the format of dates
+  customCSS = [] # Include custom CSS files
+  customJS = [] # Include custom JS files
+  # customPartial = "analytics.html" # Include custom partial at the end of the page
+  # belowTitlePartial = "banner.html" # Include custom partial below the pages title
 
 [Params.Author] # Used in authorbox
   name = "Scout Master"
@@ -45,22 +56,16 @@ theme = "hugo-dpsg"
 
 [Params.widgets]
   recent_num = 5 # Set the number of articles in the "Recent articles" widget
-  tags_counter = false # Enable counter for each tag in "Tags" widget
+  tags_counter = true # Enable counter for each tag in "Tags" widget
 
 [Params.footer]
-  text = "[Imprint and Privacy](/imprint)" # Extra text in footer row, understands markdown
-  right = "Donate!" # Right-aligned text in footer row, understands markdown
+  text = "[Imprint and Privacy](/)" # Extra text in footer row, understands markdown
+  right = "[Donate!](/)" # Right-aligned text in footer row, understands markdown
 
 # Custom menu items, normally controlled via front matter in /content files
 [menu]
   [[menu.main]]
-    identifier = "start"
-    name = "Start"
-    url = "/"
-    weight = 1
-
-  [[menu.main]]
-    identifier = "about"
-    name = "About"
-    url = "/about/"
-    weight = 2
+    identifier = "login"
+    name = "External Login"
+    url = "https://example.com/login"
+    weight = 99

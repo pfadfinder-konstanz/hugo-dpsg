@@ -1,13 +1,10 @@
 ---
-title: "Start"
-page: true
+title: "Our local scout group"
 menu:
   main:
-    name: "Start"
+    name: "Home"
     weight: 1
 ---
-
-# Our local scout group
 
 This is the index page.
 
