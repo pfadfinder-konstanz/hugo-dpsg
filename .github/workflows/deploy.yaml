@@ -43,14 +43,16 @@ jobs:
           extended: true
       - name: Build
         run: hugo
+        # run in the exampleSite directory
+        working-directory: ./exampleSite
       # Prepare GH Pages
       - name: Setup Pages
         uses: actions/configure-pages@v5
-      # Upload built site to GH Pages
+      # Upload built example site to GH Pages
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "./public"
+          path: "./exampleSite/public"
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
