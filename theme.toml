@@ -1,11 +1,12 @@
 name = "DPSG"
 license = "GPL-2.0-only"
-licenselink = "https://github.com/pfadfinder-konstanz/hugo-dpsg/blob/master/LICENSE.md"
+licenselink = "https://github.com/pfadfinder-konstanz/hugo-dpsg/blob/main/LICENSE.md"
 description = " Hugo theme based on the DPSG theme for German scout websites. Forked from the Mainroad theme "
 homepage = "https://github.com/pfadfinder-konstanz/hugo-dpsg/"
+demosite = "https://pfadfinder-konstanz.github.io/hugo-dpsg/"
 tags = ["blog", "responsive", "customizable", "widgets", "rss"]
 features = ["blog", "responsive", "widgets", "rss", "wordpress"]
-min_version = "0.48"
+min_version = "0.132"
 
 # If the theme has multiple authors
 authors = [
@@ -16,4 +17,4 @@ authors = [
 # If porting an existing theme
 [original]
   name = "DPSG Wordpress Theme"
-  homepage = "https://dpsg.de/de/fuer-mitglieder/oeffentlichkeitsarbeit/vorlagen/vorlagen-online/wordpress.html"
+  homepage = "https://dpsg.de/de/leitende-mitarbeitende/oeffentlichkeitsarbeit/logos-material-vorlagen/wordpress-theme"

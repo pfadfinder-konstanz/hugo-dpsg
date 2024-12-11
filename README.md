@@ -6,10 +6,10 @@ theme](https://dpsg.de/de/fuer-mitglieder/oeffentlichkeitsarbeit/vorlagen/vorlag
 featured by the DPSG German scout association. It's forked from the
 [Mainroad](https://github.com/Vimux/Mainroad) Hugo theme.
 
-The reference implementation is visible on the [website of DPSG Stamm Bruder
-Klaus Konstanz](https://pfadfinder-konstanz.de).
+The **reference implementation** is visible on the [website of DPSG Stamm Bruder
+Klaus Konstanz](https://pfadfinder-konstanz.de). The [**demo page**](https://pfadfinder-konstanz.github.io/hugo-dpsg/) is built from with [exampleSite](/exampleSite/).
 
-![screenshot](https://github.com/pfadfinder-konstanz/hugo-dpsg/blob/master/images/screenshot.png)
+![screenshot](https://raw.githubusercontent.com/pfadfinder-konstanz/hugo-dpsg/refs/heads/main/images/screenshot.png)
 
 **Features:**
 
@@ -274,4 +274,4 @@ request](https://github.com/pfadfinder-konstanz/hugo-dpsg/pulls).
 
 ## License
 
-This theme is released under the [GPLv2 license](https://github.com/pfadfinder-konstanz/hugo-dpsg/blob/master/LICENSE.md) (GPL-2.0-only).
+This theme is released under the [GPLv2 license](https://github.com/pfadfinder-konstanz/hugo-dpsg/blob/main/LICENSE.md) (GPL-2.0-only).
