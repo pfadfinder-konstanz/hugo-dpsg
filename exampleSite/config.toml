@@ -1,4 +1,5 @@
-baseurl = "https://example.com"
+# Configure base URL. if using gh-pages https://github.com/<username>/hugo-dpsg URL: https://<username>.github.io/hugo-dpsg/
+baseurl = "https://pfadfinder-konstanz.github.io/hugo-dpsg/"
 title = "Hugo DPSG"
 paginate = "10" # Number of posts per page
 theme = "hugo-dpsg"
