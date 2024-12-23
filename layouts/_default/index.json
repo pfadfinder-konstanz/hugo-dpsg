@@ -3,6 +3,7 @@
 {{- range where .Site.RegularPages.ByDate.Reverse "Type" "not in" (slice "page" "json") -}}
     {{- $summary := .Content | plainify | truncate 100 -}}
     {{- $shortTitle := .Title | truncate 10 -}}
-    {{- $index = $index | append (dict "title" (.Title | plainify) "permalink" .Permalink "content" .Content "summary" $summary "shortTitle" $shortTitle "categories" .Params.categories) -}}
+    {{- $content := .Content | plainify -}}
+    {{- $index = $index | append (dict "title" (.Title | plainify) "permalink" .Permalink "content" $content "summary" $summary "shortTitle" $shortTitle "categories" .Params.categories) -}}
 {{- end -}}
 {{- $index | jsonify -}}
