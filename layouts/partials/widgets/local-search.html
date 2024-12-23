@@ -1,0 +1,110 @@
+<div class="widget widget-search">
+    <h4 class="widget__title">{{ T "search_placeholder" }}</h4>
+    <div class="widget__content">
+        <input
+            type="text"
+            id="search-input"
+            placeholder="{{ T "search_placeholder" }}"
+            aria-label="{{ T "search_placeholder" }}"
+            class="search-input"
+        >
+        <ul id="search-results" class="search-results"></ul>
+    </div>
+</div>
+
+<style>
+    /* Widget container styling */
+    .widget {
+        background: #ffffff;
+        border: 1px solid #ddd;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Title styling */
+    .widget__title {
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: {{ .Site.Params.style.vars.highlightColor }}; /* Set theme color */
+        margin-bottom: 15px;
+    }
+
+    /* Input styling */
+    .search-input {
+        width: 100%;
+        padding: 10px;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-bottom: 15px;
+        box-sizing: border-box;
+    }
+
+    /* Results list styling */
+    .search-results {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .search-results-item {
+        margin-bottom: 10px;
+        padding: 10px;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+
+    .search-results-item a {
+        font-weight: bold;
+        color: {{ .Site.Params.style.vars.highlightColor }}; /* Set theme color */
+        text-decoration: none;
+    }
+
+    .search-results-item a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<script>
+    const input = document.getElementById("search-input");
+    const results = document.getElementById("search-results");
+    const request = new Request("/index.json");
+
+    fetch(request)
+        .then(response => response.json())
+        .then(data => {
+            let pages = data;
+
+            input.addEventListener("input", function () {
+                let filteredPages = pages;
+                results.innerHTML = "";
+
+                if (input.value !== "") {
+                    let searchTerms = input.value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().split(" ");
+
+                    searchTerms.forEach(function (term) {
+                        filteredPages = filteredPages.filter(function (page) {
+                            let content = page.content || "";  // Ensure we're searching the full content
+                            return content.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().includes(term);
+                        });
+                    });
+
+                    filteredPages.forEach(function (page) {
+                        results.insertAdjacentHTML(
+                            "beforeend",
+                            `<li class='search-results-item'>
+                                <h2 style='font-size: 1.5rem;'>
+                                    <a href='${page.permalink}' title='${page.title}'>${page.shortTitle}</a> <!-- Tooltip for full title -->
+                                </h2>
+                                <p>${page.summary}</p>  <!-- Display the summary as before -->
+                            </li>`
+                        );
+                    });
+                }
+            });
+        });
+</script>
+
