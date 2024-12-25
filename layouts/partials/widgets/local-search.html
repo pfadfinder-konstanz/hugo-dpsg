@@ -52,7 +52,6 @@
         font-weight: bold;
         text-decoration: underline;
     }
-
 </style>
 
 <script>
@@ -69,12 +68,15 @@
                 let filteredPages = pages;
                 results.innerHTML = "";
 
-                if (input.value !== "") {
+                if (input.value.trim() !== "") { // Check if the input is not just spaces
                     let searchTerms = input.value
                         .normalize("NFD")
                         .replace(/[\u0300-\u036f]/g, "")
                         .toLowerCase()
-                        .split(" ");
+                        .split(" ")
+                        .filter(term => term.trim().length > 0); // Ignore empty or invalid terms
+
+                    if (searchTerms.length === 0) return; // Exit if no valid search terms
 
                     // Calculate relevance scores
                     filteredPages = filteredPages.map(function (page) {
