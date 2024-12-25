@@ -47,6 +47,12 @@
     .search-results-item a:hover {
         text-decoration: underline;
     }
+    .highlight {
+        color: {{ .Site.Params.style.vars.highlightColor }}; /* Set theme color */
+        font-weight: bold;
+        text-decoration: underline;
+    }
+
 </style>
 
 <script>
@@ -64,28 +70,79 @@
                 results.innerHTML = "";
 
                 if (input.value !== "") {
-                    let searchTerms = input.value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().split(" ");
+                    let searchTerms = input.value
+                        .normalize("NFD")
+                        .replace(/[\u0300-\u036f]/g, "")
+                        .toLowerCase()
+                        .split(" ");
 
-                    searchTerms.forEach(function (term) {
-                        filteredPages = filteredPages.filter(function (page) {
-                            let content = page.content || "";  // Ensure we're searching the full content
-                            return content.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().includes(term);
+                    // Calculate relevance scores
+                    filteredPages = filteredPages.map(function (page) {
+                        let score = 0;
+                        let content = (page.content || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+                        let title = (page.title || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+
+                        searchTerms.forEach(term => {
+                            if (title.includes(term)) score += 5; // Higher weight for title matches
+                            if (content.includes(term)) score += 1; // Lower weight for content matches
                         });
+
+                        return { ...page, score };
                     });
 
+                    // Filter and sort by relevance
+                    filteredPages = filteredPages
+                        .filter(page => page.score > 0)
+                        .sort((a, b) => b.score - a.score);
+
+                    // Highlight matches and create dynamic summaries
                     filteredPages.forEach(function (page) {
+                        let highlightedTitle = highlightTerms(page.title, searchTerms);
+                        let dynamicSummary = createDynamicSummary(page.content, searchTerms);
+
                         results.insertAdjacentHTML(
                             "beforeend",
                             `<li class='search-results-item'>
                                 <h2 style='font-size: 1.5rem;'>
-                                    <a href='${page.permalink}' title='${page.title}'>${page.shortTitle}</a> <!-- Tooltip for full title -->
+                                    <a href='${page.permalink}' title='${page.title}'>${highlightedTitle}</a>
                                 </h2>
-                                <p>${page.summary}</p>  <!-- Display the summary as before -->
+                                <p>${dynamicSummary}</p>
                             </li>`
                         );
                     });
                 }
             });
+
+            // Function to highlight terms
+            function highlightTerms(text, terms) {
+                terms.forEach(term => {
+                    let regex = new RegExp(`(${term})`, "gi");
+                    text = text.replace(regex, "<span class='highlight'>$1</span>");
+                });
+                return text;
+            }
+
+            // Function to create a dynamic summary with highlighted terms
+            function createDynamicSummary(content, terms) {
+                content = content.normalize("NFD").replace(/[\u0300-\u036f]/g, ""); // Normalize content
+                let lowerContent = content.toLowerCase();
+                let matchIndex = -1;
+
+                // Find the first occurrence of any term
+                terms.some(term => {
+                    matchIndex = lowerContent.indexOf(term.toLowerCase());
+                    return matchIndex !== -1;
+                });
+
+                if (matchIndex === -1) return ""; // No match found
+
+                // Extract context around the match
+                let start = Math.max(matchIndex - 30, 0); // 30 characters before the match
+                let end = Math.min(matchIndex + 70, content.length); // 70 characters after the match
+                let snippet = content.slice(start, end);
+
+                // Highlight the terms in the snippet
+                return highlightTerms(snippet, terms) + (end < content.length ? "..." : "");
+            }
         });
 </script>
-
