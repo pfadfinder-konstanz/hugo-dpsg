@@ -118,7 +118,7 @@
             // Function to highlight terms
             function highlightTerms(text, terms) {
                 terms.forEach(term => {
-                    let regex = new RegExp(`(${term})`, "gi");
+                    let regex = new RegExp(`(${term})(?![^<]*>)`, "gi");
                     text = text.replace(regex, "<span class='highlight'>$1</span>");
                 });
                 return text;
