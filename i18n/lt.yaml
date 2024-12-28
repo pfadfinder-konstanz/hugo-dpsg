@@ -1,0 +1,98 @@
+# General
+- id: read_more
+  translation: "Skaityti toliau…"
+
+- id: menu_label
+  translation: "Meniu"
+
+- id: sidemenu_title
+  translation: "Meniu"
+
+# Post meta
+- id: meta_lastmod
+  translation: "paskutinis taisymas"
+
+- id: meta_translations
+  translation: "Vertimai"
+
+# Table of Contents
+- id: toc_title
+  translation: "Tinklalapio turinys"
+
+# Post nav
+- id: post_nav_prev
+  translation: "Ankstenis"
+
+- id: post_nav_next
+  translation: "Kitas"
+
+# Authorbox
+- id: authorbox_name
+  translation: "Autorius: {{ .Name }}"
+
+# Sidebar
+- id: sidebar_warning
+  translation: "DĖMESIO"
+
+- id: sidebar_recommendation
+  translation: "Aktyvinkite bent vieną šoninės juostos bloką."
+
+# Search widget
+- id: search_placeholder
+  translation: "IEŠKOTI…"
+
+# Languages widget
+- id: languages_title
+  translation: "Kalbos"
+
+# Categories widget
+- id: categories_title
+  translation: "Kategorijos"
+
+# Recent Posts widget
+- id: recent_title
+  translation: "Naujausi įrašai"
+
+# Recent Photos widget
+- id: recent_photos_title
+  translation: "Naujausios nuotraukos"
+
+# Social widget
+- id: social_title
+  translation: "Socialiniai tinklai"
+
+# Tags List widget
+- id: tags_title
+  translation: "Žymos"
+
+# Footer
+- id: footer_credits
+  translation:
+    "Sugeneruota naudojant <a href=\"https://gohugo.io/\" rel=\"nofollow noopener\" target=\"_blank\">„Hugo“</a> ir \
+    <a href=\"https://github.com/pfadfinder-konstanz/hugo-dpsg/\" rel=\"nofollow noopener\" target=\"_blank\">DPSG</a> temą."
+
+# 404
+- id: 404_title
+  translation: "404. Tinklalapis nerastas"
+
+- id: 404_text
+  translation:
+    "Tinklalapis, kurį bandote atverti, perkeltas, pašalintas, arba tiesiog neegzistuoja. Prašom pasinaudoti paieška arba eiti į"
+
+- id: 404_linktext
+  translation: "pradžios tinklalapį"
+
+# No posts empty state
+- id: noposts_warning_title
+  translation: "Jūs neturite jokių įrašų!"
+
+- id: noposts_warning_description
+  translation:
+    "Kai ką nors paskelbsite bet kuriame aplanko <b>content</b> poaplankyje (sekcijoje), tą turinį matysite čia. \
+    Numatytuoju atveju pradžios tinklalapyje bus rodoma tik viena sekcija (turinti daugiausia įrašų)."
+
+- id: noposts_warning_tip
+  translation:
+    "<b>Pastaba:</b> norimą rodyti sekcijų kiekį galite keisti \
+    <b><a href=\"https://gohugo.io/functions/where/#mainsections\" rel=\"nofollow noopener\" target=\"_blank\">mainSections</a></b> \
+    konfigūracijos parametro pagalba."
