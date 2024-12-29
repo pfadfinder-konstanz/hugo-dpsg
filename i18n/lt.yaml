@@ -21,7 +21,7 @@
 
 # Post nav
 - id: post_nav_prev
-  translation: "Ankstenis"
+  translation: "Ankstesnis"
 
 - id: post_nav_next
   translation: "Kitas"
