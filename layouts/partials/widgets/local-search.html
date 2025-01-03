@@ -57,7 +57,10 @@
 <script>
     const input = document.getElementById("search-input");
     const results = document.getElementById("search-results");
-    const request = new Request("/index.json");
+
+    // Create a cache-busting query parameter using the current timestamp
+    const cacheBuster = new Date().getTime();
+    const request = new Request(`/index.json?timestamp=${cacheBuster}`);
 
     fetch(request)
         .then(response => response.json())
