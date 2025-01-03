@@ -106,6 +106,8 @@
                         .filter(page => page.score > 0)
                         .sort((a, b) => b.score - a.score);
 
+                    filteredPages = filteredPages.slice(0, 10);
+
                     // Highlight matches and create dynamic summaries
                     filteredPages.forEach(function (page) {
                         let highlightedTitle = highlightTerms(page.title, searchTerms);
