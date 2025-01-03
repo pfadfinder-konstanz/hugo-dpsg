@@ -114,7 +114,7 @@ theme = "hugo-dpsg"
   single = false # Configure layout for single pages
   # Enable widgets in given order
   widgets = ["search", "recent", "recent_photos", "recent_photos_tags", "categories", "taglist", "social", "languages"]
-  # alternatively "ddg-search" can be used, to search via DuckDuckGo or "local-search" to use a client side search widget
+  # alternatively "ddg-search" can be used, to search via DuckDuckGo or "local-search" to use a client side search widget (WARNING: On big websites the local search can cause high traffic)
   # widgets = ["ddg-search", "recent", "categories", "taglist", "social", "languages"]
 
 [Params.footer]
