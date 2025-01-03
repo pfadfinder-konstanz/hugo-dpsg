@@ -1,0 +1,7 @@
+{{/* layouts/_default/index.json */}}
+{{- $index := slice -}}
+{{- range where .Site.RegularPages.ByDate.Reverse "Type" "not in" (slice "json") -}}
+    {{- $content := .Content | plainify -}}
+    {{- $index = $index | append (dict "title" (.Title | plainify) "permalink" .Permalink "content" $content "categories" .Params.categories) -}}
+{{- end -}}
+{{- $index | jsonify -}}

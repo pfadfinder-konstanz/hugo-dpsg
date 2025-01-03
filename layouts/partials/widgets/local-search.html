@@ -1,0 +1,164 @@
+<div class="widget widget-search">
+    <h4 class="widget__title">{{ T "search_placeholder" }}</h4>
+    <div class="widget__content">
+        <input
+            type="text"
+            id="search-input"
+            placeholder="{{ T "search_placeholder" }}"
+            aria-label="{{ T "search_placeholder" }}"
+            class="search-input"
+        >
+        <ul id="search-results" class="search-results"></ul>
+    </div>
+</div>
+
+<style>
+    /* Input styling */
+    .search-input {
+        width: 100%;
+        padding: 10px;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-bottom: 15px;
+        box-sizing: border-box;
+    }
+
+    /* Results list styling */
+    .search-results {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .search-results-item {
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+
+    .search-results-item a {
+        font-weight: bold;
+        color: {{ .Site.Params.style.vars.highlightColor }}; /* Set theme color */
+        text-decoration: none;
+    }
+
+    .search-results-item a:hover {
+        text-decoration: underline;
+    }
+    .highlight {
+        color: {{ .Site.Params.style.vars.highlightColor }}; /* Set theme color */
+        font-weight: bold;
+        text-decoration: underline;
+    }
+</style>
+
+<script>
+    const input = document.getElementById("search-input");
+    const results = document.getElementById("search-results");
+
+    // Create a cache-busting query parameter using the current timestamp
+    const cacheBuster = new Date().getTime();
+    const request = new Request(`/index.json?timestamp=${cacheBuster}`);
+
+    fetch(request)
+        .then(response => response.json())
+        .then(data => {
+            let pages = data;
+
+            input.addEventListener("input", function () {
+                let filteredPages = pages;
+                results.innerHTML = "";
+
+                if (input.value.trim() !== "") { // Check if the input is not just spaces
+                    let searchTerms = input.value
+                        .normalize("NFD")
+                        .replace(/[\u0300-\u036f]/g, "")
+                        .toLowerCase()
+                        .split(" ")
+                        .filter(term => term.trim().length > 0); // Ignore empty or invalid terms
+
+                    if (searchTerms.length === 0) return; // Exit if no valid search terms
+
+                    // Calculate relevance scores
+                    filteredPages = filteredPages.map(function (page) {
+                        let score = 0;
+                        let content = (page.content || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+                        let title = (page.title || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+
+                        searchTerms.forEach(term => {
+                            // Count matches
+                            let titleMatches = (title.match(new RegExp(term, "g")) || []).length;
+                            let contentMatches = (content.match(new RegExp(term, "g")) || []).length;
+
+                            // logarithmic calculation of the scores
+                            if (titleMatches > 0) {
+                                score += 5 * Math.log(titleMatches + 1);
+                            }
+                            if (contentMatches > 0) {
+                                score += 1 * Math.log(contentMatches + 1);
+                            }
+                        });
+
+                        return { ...page, score };
+                    });
+
+                    // Filter and sort by relevance
+                    filteredPages = filteredPages
+                        .filter(page => page.score > 0)
+                        .sort((a, b) => b.score - a.score);
+
+                    filteredPages = filteredPages.slice(0, 10);
+
+                    // Highlight matches and create dynamic summaries
+                    filteredPages.forEach(function (page) {
+                        let highlightedTitle = highlightTerms(page.title, searchTerms);
+                        let dynamicSummary = createDynamicSummary(page.content, searchTerms);
+
+                        results.insertAdjacentHTML(
+                            "beforeend",
+                            `<li class='search-results-item'>
+                                <h2 style='font-size: 1.5rem;'>
+                                    <a href='${page.permalink}' title='${page.title}'>${highlightedTitle}</a>
+                                </h2>
+                                <p>${dynamicSummary}</p>
+                            </li>`
+                        );
+                    });
+                }
+            });
+
+            // Function to highlight terms
+            function highlightTerms(text, terms) {
+                terms.forEach(term => {
+                    let regex = new RegExp(`(${term})(?![^<]*>)`, "gi");
+                    text = text.replace(regex, "<span class='highlight'>$1</span>");
+                });
+                return text;
+            }
+
+            // Function to create a dynamic summary with highlighted terms
+            function createDynamicSummary(content, terms) {
+                content = content.normalize("NFD").replace(/[\u0300-\u036f]/g, ""); // Normalize content
+                let lowerContent = content.toLowerCase();
+                let matchIndex = -1;
+
+                // Find the first occurrence of any term
+                terms.some(term => {
+                    matchIndex = lowerContent.indexOf(term.toLowerCase());
+                    return matchIndex !== -1;
+                });
+
+                if (matchIndex === -1) return ""; // No match found
+
+                // Extract context around the match
+                let start = Math.max(matchIndex - 30, 0); // 30 characters before the match
+                let end = Math.min(matchIndex + 70, content.length); // 70 characters after the match
+                let snippet = content.slice(start, end);
+
+                // Highlight the terms in the snippet
+                return highlightTerms(snippet, terms) + (end < content.length ? "..." : "");
+            }
+        });
+</script>
