@@ -85,8 +85,17 @@
                         let title = (page.title || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 
                         searchTerms.forEach(term => {
-                            if (title.includes(term)) score += 5; // Higher weight for title matches
-                            if (content.includes(term)) score += 1; // Lower weight for content matches
+                            // Count matches
+                            let titleMatches = (title.match(new RegExp(term, "g")) || []).length;
+                            let contentMatches = (content.match(new RegExp(term, "g")) || []).length;
+
+                            // logarithmic calculation of the scores
+                            if (titleMatches > 0) {
+                                score += 5 * Math.log(titleMatches + 1);
+                            }
+                            if (contentMatches > 0) {
+                                score += 1 * Math.log(contentMatches + 1);
+                            }
                         });
 
                         return { ...page, score };
