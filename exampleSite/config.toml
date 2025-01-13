@@ -9,6 +9,9 @@ themesDir = "../.."
 languageCode = "en"
 DefaultContentLanguage = "en"
 
+[outputs] # Needed if using the local-search widget
+  home = ["HTML", "RSS", "JSON"]
+
 [permalinks]
   news = "post/:year/:slug/"
   fotos = "fotos/:year/:slug/"
@@ -51,8 +54,8 @@ DefaultContentLanguage = "en"
   list = "left"  # Configure layout for list pages
   single = false # Configure layout for single pages
   # Enable widgets in given order
-  widgets = ["search", "recent", "categories", "taglist", "social", "languages"]
-  # alternatively "ddg-search" can be used, to search via DuckDuckGo
+  widgets = ["local-search", "recent", "categories", "taglist", "social", "languages"]
+  # alternatively "ddg-search" can be used, to search via DuckDuckGo or "search" can be used, to search via Google. "local-search" provides a client side search widget (WARNING: On big websites the local search can cause high traffic)
   # widgets = ["ddg-search", "recent", "categories", "taglist", "social", "languages"]
 
 [Params.widgets]
